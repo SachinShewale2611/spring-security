@@ -17,12 +17,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "\"user\"")
+@Table(name = "users")
 public class User implements UserDetails {
 
   @Id
   @GeneratedValue
-  @SequenceGenerator(name = "user_seq_gen", sequenceName = "user_seq", allocationSize = 1)
+  @SequenceGenerator(name = "user_seq_gen", sequenceName = "users_seq", allocationSize = 1)
   private Integer id;
   private String firstname;
   private String lastname;
