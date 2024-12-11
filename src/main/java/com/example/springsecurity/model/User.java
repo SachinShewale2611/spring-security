@@ -1,7 +1,6 @@
 package com.example.springsecurity.model;
 
 import com.example.springsecurity.enums.Role;
-import com.example.springsecurity.model.Token;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,12 +17,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "_user")
+@Table(name = "\"user\"")
 public class User implements UserDetails {
 
   @Id
   @GeneratedValue
-  @SequenceGenerator(name = "user_seq_gen", sequenceName = "_user_seq", allocationSize = 1)
+  @SequenceGenerator(name = "user_seq_gen", sequenceName = "user_seq", allocationSize = 1)
   private Integer id;
   private String firstname;
   private String lastname;

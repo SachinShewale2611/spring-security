@@ -1,15 +1,14 @@
 package com.example.springsecurity.controller;
 
+import com.example.springsecurity.model.User;
 import com.example.springsecurity.request.ChangePasswordRequest;
 import com.example.springsecurity.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/users")
@@ -17,6 +16,12 @@ import java.security.Principal;
 public class UserController {
 
     private final UserService service;
+
+
+    @GetMapping
+    public ResponseEntity<List<User>> getAllUsers() {
+        return ResponseEntity.ok(service.findAll());
+    }
 
     @PatchMapping
     public ResponseEntity<?> changePassword(
